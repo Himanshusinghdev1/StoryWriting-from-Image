@@ -1,0 +1,8 @@
+
+
+
+data_ingestion:
+  raw_data_dir: "data/raw"
+  ingested_data_dir: "data/ingested"
+  allowed_extensions: ["jpg", "jpeg", "png"]
+  max_file_size: 5242880  # 5MB

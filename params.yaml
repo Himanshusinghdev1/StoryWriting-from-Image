@@ -1,0 +1,2 @@
+data_ingestion:
+  resize_shape: [512, 512]
