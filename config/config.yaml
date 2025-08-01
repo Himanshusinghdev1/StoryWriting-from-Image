@@ -6,3 +6,9 @@ data_ingestion:
   ingested_data_dir: "data/ingested"
   allowed_extensions: ["jpg", "jpeg", "png"]
   max_file_size: 5242880  # 5MB
+
+image_captioning:
+  ingested_data_dir: "data/ingested"
+  captions_dir: "data/captions"
+  florence2_model_name: "microsoft/Florence-2-large-ft"
+
