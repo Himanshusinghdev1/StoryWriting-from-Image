@@ -1,2 +1,7 @@
 data_ingestion:
   resize_shape: [512, 512]
+
+image_captioning:
+  max_new_tokens: 64   # Adjust based on your desired caption length
+  task_prompt: "<MORE_DETAILED_CAPTION>"
+  num_beams: 3
