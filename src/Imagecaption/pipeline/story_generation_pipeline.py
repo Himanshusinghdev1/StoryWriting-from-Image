@@ -9,10 +9,10 @@ STAGE_NAME = "Story Generation Stage"
 class StoryGenerationPipeline:
     def __init__(self): pass
 
-    def main(self, caption_file_path: Path):
+    def main(self, caption_file_path: Path, theme=None, word_limit=None):
         config = ConfigurationManager().get_story_generation_config()
         story_generator = StoryGeneration(config)
-        story = story_generator.generate_story(caption_file_path)
+        story = story_generator.generate_story(caption_file_path, theme, word_limit)
         logger.info(f"Story generated (length: {len(story)} characters)")
         return story
 

@@ -11,8 +11,9 @@ story_generation:
   temperature: 0.7
   top_p: 0.9
   story_prompt_template: |
-    Expand the following image description into a vivid, creative, and engaging short story (about 300-500 words):
+    Expand the following image description into a {theme} story of around 
+    {word_limit} words (strictly not exceeding the word limit). Be creative, engaging, and vivid.
 
     Image Description: {caption}
 
-    Write the story as an immersive narrative for all ages.
+    Story:

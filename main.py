@@ -26,9 +26,11 @@ if __name__ == '__main__':
 
         # Stage 3: Story Generation
         logger.info(f">>>>>> stage {STAGE_NAME_STORY} started <<<<<<")
+        theme = input("Enter desired story theme (e.g., adventure, fantasy, mystery): ")
+        word_limit = int(input("Enter story word limit (e.g., 150, 300, 500): "))
         story_pipeline = StoryGenerationPipeline()
         caption_file = Path("data/captions") / f"{ingested_path.stem}_caption.txt"
-        story = story_pipeline.main(caption_file)
+        story = story_pipeline.main(caption_file, theme, word_limit)
         logger.info(f"Generated Story Preview: {story[:200]}...")
         logger.info(f">>>>>> stage {STAGE_NAME_STORY} completed <<<<<<\n\nx==========x")
 

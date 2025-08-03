@@ -29,3 +29,5 @@ class StoryGenerationConfig:
     temperature: float
     top_p: float
     story_prompt_template: str
+    default_theme: str = "adventure"
+    default_word_limit: int = 400

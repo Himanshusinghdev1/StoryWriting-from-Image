@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>StoryWriting-from-Image</title>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+</head>
+<body>
+    <h2>Generate a Story from Your Image</h2>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+          <li style="color: red;">{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    <form method="post" enctype="multipart/form-data">
+      <label>Choose Image:
+        <input type="file" name="image" required>
+      </label>
+      <label>Story Theme:
+        <input type="text" name="theme" placeholder="e.g. adventure, romance, horror" required>
+      </label>
+      <label>Word Limit:
+        <input type="number" name="word_limit" min="100" max="1000" value="400" required>
+      </label>
+      <input type="submit" value="Generate Story">
+    </form>
+</body>
+</html>

@@ -12,11 +12,15 @@ class StoryGeneration:
         create_directories([self.config.stories_dir])
         self.client = Together(api_key=self.config.together_api_key)
 
-    def generate_story(self, caption_file_path: Path) -> str:
+    def generate_story(self, caption_file_path: Path, theme: str = None, word_limit: int = None) -> str:
         with open(caption_file_path, 'r', encoding='utf-8') as f:
             caption = f.read().strip()
-        logger.info(f"Read caption from: {caption_file_path}")
-        prompt = self.config.story_prompt_template.format(caption=caption)
+
+        # Use user input or default
+        theme = theme or self.config.default_theme
+        word_limit = word_limit or self.config.default_word_limit
+
+        prompt = self.config.story_prompt_template.format(caption=caption, theme=theme, word_limit=word_limit)
         logger.info(f"Calling Together.ai with Llama-3.3-70B-Instruct-Turbo-Free...")
 
         response = self.client.chat.completions.create(
