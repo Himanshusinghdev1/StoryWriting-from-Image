@@ -18,3 +18,14 @@ class ImageCaptioningConfig:
     max_new_tokens: int
     task_prompt: str
     num_beams: int
+
+@dataclass(frozen=True)
+class StoryGenerationConfig:
+    captions_dir: Path
+    stories_dir: Path
+    model_name: str
+    together_api_key: str
+    max_tokens: int
+    temperature: float
+    top_p: float
+    story_prompt_template: str

@@ -12,3 +12,8 @@ image_captioning:
   captions_dir: "data/captions"
   florence2_model_name: "microsoft/Florence-2-large-ft"
 
+story_generation:
+  captions_dir: "data/captions"
+  stories_dir: "data/stories"
+  model_name: "meta-llama/Llama-3.3-70B-Instruct-Turbo-Free"
+  together_api_key: "${TOGETHER_API_KEY}"  # Set via environment variable or .env

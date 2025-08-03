@@ -5,3 +5,14 @@ image_captioning:
   max_new_tokens: 64   # Adjust based on your desired caption length
   task_prompt: "<MORE_DETAILED_CAPTION>"
   num_beams: 3
+
+story_generation:
+  max_tokens: 700
+  temperature: 0.7
+  top_p: 0.9
+  story_prompt_template: |
+    Expand the following image description into a vivid, creative, and engaging short story (about 300-500 words):
+
+    Image Description: {caption}
+
+    Write the story as an immersive narrative for all ages.
