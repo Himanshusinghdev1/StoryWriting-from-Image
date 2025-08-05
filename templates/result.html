@@ -3,15 +3,35 @@
 <head>
     <title>Your Story</title>
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <style>
+      .story-box {
+        width: 650px;            
+        min-height: 100px;       
+        max-height: 600px;       
+        background: #f7f7f7;
+        border-radius: 8px;
+        border: 1px solid #ebebeb;
+        margin: 1em auto;
+        padding: 1.5em;
+        overflow-y: auto;       
+        overflow-x: hidden;     
+        font-family: 'Georgia', serif; 
+        font-size: 1.1em;
+        white-space: pre-wrap;  
+        word-wrap: break-word;
+        box-sizing: border-box;
+        color: black;
+      }
+    </style>
 </head>
 <body>
-    <h2>Generated Story</h2>
+    <h1>Generated Story</h1>
     <p><b>Uploaded Image:</b> {{ filename }}</p>
     <p><b>Caption:</b> {{ caption }}</p>
     <p><b>Story Theme:</b> {{ theme }}</p>
     <p><b>Word Limit:</b> {{ word_limit }}</p>
     <h3>Story:</h3>
-    <pre style="background:#f4f4f4; padding:1em;">{{ story }}</pre>
+    <div class="story-box">{{ story }}</div>
     <a href="/">Try another image</a>
 </body>
 </html>
