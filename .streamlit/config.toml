@@ -1,0 +1,13 @@
+[theme]
+# Options: "light", "dark"
+base="light"
+# base="dark"   # Uncomment to force dark mode
+
+# Or...
+# base="auto"   # Users can toggle between dark/light
+
+primaryColor="#FF4B4B"
+backgroundColor="#FFFFFF"
+secondaryBackgroundColor="#F7F7F7"
+textColor="#262730"
+font="sans serif"
