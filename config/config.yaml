@@ -11,9 +11,7 @@ image_captioning:
   ingested_data_dir: "data/ingested"
   captions_dir: "data/captions"
   florence2_model_name: "microsoft/Florence-2-large-ft"
-  florence2_model_revision: "v1.0"
-  florence2_processor_revision: "v1.0"
-  
+
 story_generation:
   captions_dir: "data/captions"
   stories_dir: "data/stories"
