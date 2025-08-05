@@ -30,7 +30,7 @@ if st.button("Generate Story"):
         with st.spinner("Processing image..."):
             data_pipeline = DataIngestionPipeline()
             ingested_path = data_pipeline.main(upload_path)
-        st.image(str(ingested_path), caption="Preprocessed Image", use_column_width=True)
+        st.image(str(ingested_path), caption="Preprocessed Image", use_container_width=True)
 
         # 2. Image Captioning
         with st.spinner("Generating caption..."):
