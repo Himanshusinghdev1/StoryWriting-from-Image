@@ -21,7 +21,7 @@ class StoryGeneration:
         word_limit = word_limit or self.config.default_word_limit
 
         prompt = self.config.story_prompt_template.format(caption=caption, theme=theme, word_limit=word_limit)
-        logger.info(f"Calling Together.ai with Llama-3.3-70B-Instruct-Turbo-Free...")
+        logger.info(f"Calling Together.ai with {self.config.model_name}...")
 
         response = self.client.chat.completions.create(
             model=self.config.model_name,

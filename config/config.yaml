@@ -16,5 +16,5 @@ image_captioning:
 story_generation:
   captions_dir: "data/captions"
   stories_dir: "data/stories"
-  model_name: "meta-llama/Llama-3.3-70B-Instruct-Turbo-Free"
+  model_name: "meta-llama/Llama-3.3-70B-Instruct-Turbo"
   together_api_key: "${TOGETHER_API_KEY}"  # Set via environment variable or .env
