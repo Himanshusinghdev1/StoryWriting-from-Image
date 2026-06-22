@@ -31,24 +31,39 @@ if st.button("Generate Story"):
         st.info(f"Image saved at {upload_path}")
 
         # 1. Data Ingestion
-        with st.spinner("Processing image..."):
-            data_pipeline = DataIngestionPipeline()
-            ingested_path = data_pipeline.main(upload_path)
-        st.image(str(ingested_path), caption="Preprocessed Image", use_container_width=True)
+        try:
+            with st.spinner("Processing image..."):
+                data_pipeline = DataIngestionPipeline()
+                ingested_path = data_pipeline.main(upload_path)
+            st.image(str(ingested_path), caption="Preprocessed Image", use_container_width=True)
+        except Exception as e:
+            st.error(f"Error in Data Ingestion Stage: {e}")
+            st.exception(e)
+            st.stop()
 
         # 2. Image Captioning
-        with st.spinner("Generating caption..."):
-            caption_pipeline = ImageCaptioningPipeline()
-            caption = caption_pipeline.main(ingested_path)
-        st.success("Caption generated!")
-        st.markdown(f"**Caption:** {caption}")
+        try:
+            with st.spinner("Generating caption..."):
+                caption_pipeline = ImageCaptioningPipeline()
+                caption = caption_pipeline.main(ingested_path)
+            st.success("Caption generated!")
+            st.markdown(f"**Caption:** {caption}")
+        except Exception as e:
+            st.error(f"Error in Image Captioning Stage: {e}")
+            st.exception(e)
+            st.stop()
 
         # 3. Story Generation
-        caption_file = Path("data/captions") / f"{ingested_path.stem}_caption.txt"
-        with st.spinner("Generating story..."):
-            story_pipeline = StoryGenerationPipeline()
-            story = story_pipeline.main(caption_file, theme, word_limit)
-        st.success("Story generated!")
+        try:
+            caption_file = Path("data/captions") / f"{ingested_path.stem}_caption.txt"
+            with st.spinner("Generating story..."):
+                story_pipeline = StoryGenerationPipeline()
+                story = story_pipeline.main(caption_file, theme, word_limit)
+            st.success("Story generated!")
+        except Exception as e:
+            st.error(f"Error in Story Generation Stage: {e}")
+            st.exception(e)
+            st.stop()
 
         # Show story in a nice box
         st.markdown(f"**Theme:** {theme}  |  **Word limit:** {word_limit}")
