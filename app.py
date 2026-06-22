@@ -13,6 +13,10 @@ st.title("🖼️➡️📝 Image to Story Generator Web App")
 uploaded_file = st.file_uploader(
     "Upload an image (png, jpg, jpeg)", type=["png", "jpg", "jpeg"])
 
+if uploaded_file is not None and uploaded_file.size > 10 * 1024 * 1024:
+    st.error("Image too large. Please upload an image under 10 MB.")
+    st.stop()
+
 theme = st.text_input("Story Theme", value="adventure")
 word_limit = st.number_input("Word Limit", min_value=100, max_value=1000, value=400, step=50)
 
