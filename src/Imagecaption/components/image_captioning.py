@@ -10,8 +10,14 @@ class ImageCaptioning:
     def __init__(self, config):
         self.config = config
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        self.processor = AutoProcessor.from_pretrained(config.florence2_model_name, trust_remote_code=True, revision= "4a12a2b")
-        self.model = AutoModelForCausalLM.from_pretrained(config.florence2_model_name, trust_remote_code=True, revision="4a12a2b" ).to(self.device)
+        self.processor = AutoProcessor.from_pretrained(config.florence2_model_name, trust_remote_code=True, revision="main")
+        torch_dtype = torch.float16 if self.device.type != "cpu" else torch.float32
+        self.model = AutoModelForCausalLM.from_pretrained(
+            config.florence2_model_name, 
+            trust_remote_code=True, 
+            torch_dtype=torch_dtype, 
+            revision="main"
+        ).to(self.device).eval()
         self.config.captions_dir.mkdir(parents=True, exist_ok=True)
 
     def caption_image(self, image_path: Path) -> str:
