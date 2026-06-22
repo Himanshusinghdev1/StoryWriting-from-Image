@@ -10,7 +10,7 @@ data_ingestion:
 image_captioning:
   ingested_data_dir: "data/ingested"
   captions_dir: "data/captions"
-  florence2_model_name: "microsoft/Florence-2-base-ft"
+  florence2_model_name: "meta-llama/Llama-3.2-11B-Vision-Instruct-Turbo"
   revision_id: "main"
 
 story_generation:
